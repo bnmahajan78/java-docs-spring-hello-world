@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - JavaContainerForBIService2
+name: Build and deploy jar app to Azure Web App - JavaContainerForBIService2
 
 on:
   push:
@@ -28,9 +28,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: '${{ github.workspace }}/target/*.jar'
           
-      - name: Upload artifact for deployment job
+      - name: validate tree structure
         run: tree /f '${{ github.workspace }}/'
 
   deploy:
@@ -53,4 +53,4 @@ jobs:
           app-name: 'JavaContainerForBIService2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DE07A81BC961489F8FB5D530FCC405FA }}
-          package: '*.war'
+          package: '*.jar'
