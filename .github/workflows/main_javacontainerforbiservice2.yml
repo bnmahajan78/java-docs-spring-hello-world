@@ -32,6 +32,10 @@ jobs:
           
       - name: validate tree structure
         run: tree /f '${{ github.workspace }}/'
+        
+      - name: display package json
+        run: type 'D:\a\_actions\azure\webapps-deploy\v2\node_modules\actions-secret-parser\package.json'        
+        
 
   deploy:
     runs-on: windows-latest
