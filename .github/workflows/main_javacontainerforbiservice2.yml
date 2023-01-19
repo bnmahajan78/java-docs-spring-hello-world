@@ -33,8 +33,7 @@ jobs:
       - name: validate tree structure
         run: tree /f '${{ github.workspace }}/'
         
-      - name: display package json
-        run: type 'D:\a\_actions\azure\webapps-deploy\v2\node_modules\actions-secret-parser\package.json'        
+     
         
 
   deploy:
@@ -45,6 +44,9 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      - name: display deploy tree structure
+        run: tree /f '${{ steps.deploy-to-webapp.outputs.webapp-url }}'   
+        
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
