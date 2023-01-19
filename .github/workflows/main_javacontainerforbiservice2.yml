@@ -47,6 +47,9 @@ jobs:
       - name: display deploy tree structure
         run: tree /f 'D:\'   
         
+      - name: display content of  package.json
+        run: type  'D:\a\_actions\actions\download-artifact\v2\package.json'   
+        
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
