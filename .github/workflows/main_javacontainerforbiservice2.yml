@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: display deploy tree structure
-        run: tree /f '${{ steps.deploy-to-webapp.outputs.webapp-url }}'   
+        run: tree /f 'D:\'   
         
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
