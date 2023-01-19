@@ -29,6 +29,9 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.war'
+          
+      - name: Upload artifact for deployment job
+        run: tree /f '${{ github.workspace }}/'
 
   deploy:
     runs-on: windows-latest
